@@ -1,0 +1,19 @@
+<div class="todo-list">
+  <h2>{{title}}</h2>
+  <div class="task-list">
+    <div *ngFor="let task of tasks">
+      <div class="task">
+        <input type="checkbox" class="done-checkbox" [(ngModel)]="task.done" (change)="onTaskChanged(task)" />
+        <span class="title" (click)="showDetails(task, $event)">
+          {{task.title}}
+        </span>
+        <div class="delete" (click)="removeTask(task)"><img src="/assets/images/delete.svg" alt=""></div>
+      </div>
+    </div>
+    <ng-container *ngIf="currentTask">
+      <!-- <ng-container *ngComponentOutlet="TaskComponent;" [task]="currentTask"></ng-container> -->
+      <app-task-popup #popup style="left: 0; top: 0;" [task]="currentTask" (click)="onPopupClick($event)" (taskChange)="onTaskChanged(popup.task)"></app-task-popup>
+    </ng-container>
+  </div>
+</div>
+<app-task-form #form></app-task-form>

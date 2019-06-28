@@ -1,0 +1,66 @@
+@import "../../less-vars.less";
+
+.todo-list {
+  background-color: aqua;
+  border-radius: 10px;
+  border: 1px solid black;
+
+  min-height: 600px;
+  display: inline-block;
+  min-width: 400px;
+
+  overflow: hidden;
+
+  &>h2 {
+    text-align: left;
+    padding: 0.5em 0.7em;
+    margin: 0;
+    border-bottom: 1px solid black;
+
+    background-color: @title-background;
+  }
+
+  .task-list {
+    padding: 5px 0;
+
+    .task {
+      display: flex;
+      flex-direction: row;
+      padding: 5px;
+
+      &:hover {
+        background-color: @background-color;
+      }
+
+      position: relative;
+
+      &:not(:hover) .delete img {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .delete {
+        img {
+          height: 100%;
+          width: 100%;
+        }
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        min-height: 100%;
+        transition: opacity 0.1s;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+
+      &>.title {
+        flex-grow: 1;
+        text-align: left;
+      }
+
+    }
+  }
+}

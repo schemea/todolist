@@ -1,0 +1,10 @@
+<div class="content">
+    <div [ngSwitch]="this.editing === 'title'" class="title" [ngSwitch]="this.editing === 'title'" (mousedown)="this.editing = 'title'" #title (mouseup)="focus_input(title)">
+      <span *ngSwitchCase="false">{{task.title}}</span>
+      <input type="text" [(ngModel)]="task.title" *ngSwitchCase="true" (focusout)="clear_editing('title')" />
+    </div>
+    <div [ngSwitch]="this.editing === 'details'" class="details" [ngSwitch]="this.editing === 'details'" (mousedown)="this.editing = 'details'" #details (mouseup)="focus_input(details)">
+      <pre *ngSwitchCase="false">{{task.details}}</pre>
+      <textarea [(ngModel)]="task.details" *ngSwitchCase="true" (focusout)="clear_editing('details')"></textarea>
+    </div>
+</div>
