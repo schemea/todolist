@@ -11,6 +11,9 @@
 
   overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
+
   &>h2 {
     text-align: left;
     padding: 0.5em 0.7em;
@@ -63,4 +66,21 @@
 
     }
   }
+}
+
+.cdk-drag-preview .delete img{
+  display: none;
+}
+
+
+.cdk-drag-animating, .cdk-drop-list-dragging .cdk-drag {
+  transition: transform 300ms;
+}
+
+.cdk-drag-placeholder{
+  visibility: hidden;
+}
+
+.task{
+  font-family: Roboto;
 }

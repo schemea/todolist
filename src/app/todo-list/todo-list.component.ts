@@ -2,6 +2,7 @@ import { Component, NgModule, ElementRef, ViewChild, ViewContainerRef, OnInit } 
 import { TaskPopupComponent } from './popup/popup.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 import { CookieService } from 'ngx-cookie-service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-todolist',
@@ -34,6 +35,11 @@ export class TodoListComponent implements OnInit {
 
   onTaskChanged(task: Task) {
     this.cookies.set('tasks', JSON.stringify(this.tasks));
+  }
+
+  onDropped(event: CdkDragDrop<Task[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    this.onTaskChanged(this.tasks[event.currentIndex]);
   }
 
   removeTask(task: Task) {

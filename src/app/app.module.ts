@@ -9,6 +9,8 @@ import { TaskPopupComponent } from './todo-list/popup/popup.component';
 import { TaskFormComponent } from './todo-list/task-form/task-form.component';
 import { CookieService } from 'ngx-cookie-service';
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { CookieService } from 'ngx-cookie-service';
   imports: [
     BrowserModule,
     FormsModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    DragDropModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]
